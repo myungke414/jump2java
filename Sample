@@ -1,0 +1,58 @@
+```
+
+//1.
+public class Samplesum {
+    public int sum(int a, int b){
+        return a + b;
+    }
+
+    public static void main(String[] args){
+        int a = 3;
+        int b = 4;
+
+        Samplesum sample = new Samplesum();
+        int c = sample.sum(a,b);
+
+        System.out.println(c);
+    }
+}
+
+// 7
+
+
+//2.
+public class Samplevar {
+    public void varTest(int a){
+        a++;
+    }
+
+    public static void main(String[] args){
+        int a = 1;
+        Samplevar sample = new Samplevar();
+        sample.varTest(a);
+        System.out.println(a);
+    }
+}
+
+// 1
+
+
+//3.
+public class Samplevar {
+
+    int a;
+
+    public void varTest(){
+        this.a++;
+    }
+
+    public static void main(String[] args){
+        Samplevar sample = new Samplevar();
+        sample.a = 1;
+        sample.varTest();
+        System.out.println(sample.a);
+    }
+}
+
+// 2
+```
