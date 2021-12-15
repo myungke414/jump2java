@@ -1,0 +1,60 @@
+```
+//1. 호랑이가 왔을 때, 사자가 왔을 때 각각 다른 feed 메소드가 호출된다.
+public class ZooKeeper {
+    public void feed(Tiger tiger){
+        System.out.println("feed apple");
+    }
+
+    public void feed(Lion Lion){
+        System.out.println("feed banana");
+    }
+
+    public static void main(String[] args){
+        ZooKeeper zooKeeper = new ZooKeeper();
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        zooKeeper.feed(tiger);
+        zooKeeper.feed(lion);
+    }
+}
+
+// feed apple
+// feed banana
+
+
+//2. predator.getFood()를 호출하면 Predator 인터페이스를 구현한 구현체(Tiger, Lion)의 getFood()메소드가 호출된다.
+public interface Predator {
+    public String getFood();
+}
+
+public class Tiger extends Animal implements Predator{
+    public String getFood() {
+        return "apple";
+    }
+}
+
+public class Lion extends Animal implements Predator{
+    public String getFood() {
+        return "banana";
+    }
+}
+
+public class ZooKeeper {
+    public void feed(Predator predator){
+        System.out.println("feed "+predator.getFood());
+    }
+
+    public static void main(String[] args){
+        ZooKeeper zooKeeper = new ZooKeeper();
+        Tiger tiger = new Tiger();
+        Lion lion = new Lion();
+        zooKeeper.feed(tiger);
+        zooKeeper.feed(lion);
+    }
+}
+
+
+// feed apple
+// feed banana
+
+```
