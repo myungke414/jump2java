@@ -1,0 +1,81 @@
+```
+//1. Constructor 생성자
+// 생성자의 규칙 1) 클래스명과 메소드명이 동일하다. 2)리턴타입을 정의하지 않는다.(void도 사용하지 않는다.)
+public class HouseDog extends Dog{
+    public HouseDog(String name){
+        this.setName(name);
+    }
+    public void sleep(){
+        System.out.println(this.name+" zzz in house");
+    }
+
+    public void sleep(int hour){
+        System.out.println(this.name+" zzz in house for " + hour + " hours");
+    }
+
+    public static void main(String[] args){
+        HouseDog dog = new HouseDog("happy");
+        System.out.println(dog.name);
+    }
+}
+
+//happy
+
+
+//2. 디폴트(default) 생성자
+public class Dog extends Animal{
+    public Dog(){
+        
+    }
+    public void sleep(){
+        System.out.println(this.name+" zzz");
+    }
+
+    public static void main(String[] args){
+        Dog dog = new Dog();
+        dog.setName("poppy");
+        System.out.println(dog.name);
+        dog.sleep();
+    }
+}
+
+//    public Dog(){
+//        
+//    }
+// 생성자의 입력항목이 없고 생성자 내부에 아무 내용이 없는 위와 같은 생성자
+
+
+//3. Overloading 오버로딩
+public class HouseDog extends Dog{
+    public HouseDog(String name){
+        this.setName(name);
+    }
+
+    public HouseDog(int type){
+        if (type == 1){
+            this.setName("yorkshire");
+        } else if(type == 2){
+            this.setName("bulldog");
+        }
+    }
+
+    public void sleep(){
+        System.out.println(this.name+" zzz in house");
+    }
+
+    public void sleep(int hour){
+        System.out.println(this.name+" zzz in house for " + hour + " hours");
+    }
+
+    public static void main(String[] args){
+        HouseDog happy = new HouseDog("happy");
+        HouseDog yorkshire = new HouseDog(1);
+        System.out.println(happy.name);
+        System.out.println(yorkshire.name);
+    }
+}
+
+// HouseDog의 생성자는 String 자료형을 입력으로 받는 생성자이고 다른 하나는 int 자료형을 입력받는 생성자이다.
+// 이렇ㄱ 입력 항목이 다른 생성자를 여러 개 만들 수 있는데 이것을 생성자 오버로딩 이라고 한다.
+
+```
